@@ -15,12 +15,14 @@ RUN . /etc/environment
   RUN sudo apt-get update
   RUN sudo apt-get install libudunits2-dev -y
   RUN sudo apt-get install libhdf5-serial-dev -y
+  RUN sudo apt-get install xorg
+  RUN sudo apt-get install libx11-dev
 
   RUN Rscript -e "install.packages(c('R.utils', 'clue', 'ks', 'devtools'))"
   RUN Rscript -e "BiocInstaller::biocLite(pkgs=c('flowCore', 'ncdfFlow', 'flowWorkspace', \
   'flowClust', 'flowStats', 'flowDensity', 'gtools'))"
   RUN Rscript -e "install.packages('tmp/openCyto_1.9.4.tar.gz', repos=NULL, dependencies=TRUE)"
-  RUN Rscript -e "devtools::install_github('laderast/flowDashboard/')"
+  RUN Rscript -e "devtools::install_github('laderast/flowDashboard')"
 
   # build this compendium package
   #&& R -e "devtools::install('/<REPO>', dep=TRUE)" \
