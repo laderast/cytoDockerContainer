@@ -5,6 +5,7 @@ FROM  bioconductor/release_core2
 MAINTAINER Your Name <laderast@ohsu.edu>
 
 COPY . /<REPO>
+COPY pkgs/openCyto_1.9.4.tar.gz tmp/
 
 # go into the repo directory
 RUN . /etc/environment
@@ -16,7 +17,7 @@ RUN . /etc/environment
   RUN sudo apt-get install libhdf5-serial-dev -y
 
   RUN Rscript -e "BiocInstaller::biocLite(pkgs=c('flowCore', 'ncdfFlow', 'flowWorkspace'))"
-  RUN Rscript -e "install.packages("/<REPO>/pkgs/openCyto_1.9.4.tar.gz", repos=NULL)"
+  RUN Rscript -e "install.packages('tmp/openCyto_1.9.4.tar.gz', repos=NULL)"
   RUN Rscript -e "install_github('laderast/flowDashboard/')"
 
   # build this compendium package
