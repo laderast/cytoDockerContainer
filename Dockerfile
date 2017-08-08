@@ -15,8 +15,8 @@ RUN . /etc/environment
   RUN sudo apt-get update
   RUN sudo apt-get install libudunits2-dev -y
   RUN sudo apt-get install libhdf5-serial-dev -y
-  RUN sudo apt-get install xorg
-  RUN sudo apt-get install libx11-dev
+  RUN sudo apt-get install xorg -y
+  RUN sudo apt-get install libx11-dev -y
 
   RUN Rscript -e "install.packages(c('R.utils', 'clue', 'ks', 'devtools'))"
   RUN Rscript -e "BiocInstaller::biocLite(pkgs=c('flowCore', 'ncdfFlow', 'flowWorkspace', \
