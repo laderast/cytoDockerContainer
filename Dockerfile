@@ -17,7 +17,7 @@ RUN . /etc/environment
   RUN sudo apt-get install libhdf5-serial-dev -y
 
   RUN Rscript -e "install.packages(c('R.utils', 'clue', 'ks'))"
-  RUN Rscript -e "BiocInstaller::biocLite(pkgs=c('flowCore', 'ncdfFlow', 'flowWorkspace',
+  RUN Rscript -e "BiocInstaller::biocLite(pkgs=c('flowCore', 'ncdfFlow', 'flowWorkspace', \
   'flowClust', 'flowStats', 'flowDensity', 'gtools'))"
   RUN Rscript -e "install.packages('tmp/openCyto_1.9.4.tar.gz', repos=NULL)"
   RUN Rscript -e "devtools::install_github('laderast/flowDashboard/')"
