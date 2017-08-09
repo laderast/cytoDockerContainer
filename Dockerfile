@@ -15,6 +15,8 @@ RUN . /etc/environment
   RUN sudo apt-get update
   RUN sudo apt-get install libudunits2-dev -y
   RUN sudo apt-get install libhdf5-serial-dev -y
+  RUN sudo apt-get install libcgal-dev libglu1-mesa-dev libglu1-mesa-dev -y
+  RUN sudo apt-get install libx11-dev -y
   RUN sudo apt-get install r-cran-rgl -y
 
   RUN Rscript -e "install.packages(c('R.utils', 'clue', 'ks', 'devtools'))"

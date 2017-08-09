@@ -1,0 +1,12 @@
+# get the base image, the rocker/verse has R, RStudio and pandoc
+FROM  laderast/flowaml
+
+# required
+MAINTAINER Your Name <laderast@ohsu.edu>
+
+COPY . /<REPO>
+COPY pkgs/openCyto_1.9.4.tar.gz tmp/
+
+  RUN Rscript -e "install.packages(c('tidyverse', 'rex'))"
+  RUN Rscript -e "devtools::install_github('laderast/flowDashboard')"
+
